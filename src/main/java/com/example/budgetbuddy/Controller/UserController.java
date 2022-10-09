@@ -1,0 +1,31 @@
+package com.example.budgetbuddy.Controller;
+
+import com.example.budgetbuddy.DTO.TransferDTO;
+import com.example.budgetbuddy.DTO.UserDTO;
+import com.example.budgetbuddy.Services.UserServices;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import static org.springframework.http.ResponseEntity.ok;
+
+@RequestMapping(value="/index.html")
+@RestController
+public class UserController {
+    UserServices userServices = new UserServices();
+
+    @PostMapping(path="createUser",consumes = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<?> createUser(@RequestBody UserDTO user){
+        return ResponseEntity.ok(userServices.createUser(user));
+    }
+
+    @PostMapping(path="addBankAccount", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<?> createAccount(@RequestBody UserDTO user) {
+        return ResponseEntity.ok(userServices.createAccount(user));
+    }
+
+    @GetMapping(path="viewBankAccounts", consumes=MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<?> listAllAccounts(@RequestBody UserDTO username){
+        return ResponseEntity.ok(userServices.listAllMyAccounts(username.getUsername()));
+    }
+}
