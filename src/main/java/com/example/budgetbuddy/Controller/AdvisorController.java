@@ -1,8 +1,7 @@
 package com.example.budgetbuddy.Controller;
 
 import com.example.budgetbuddy.DTO.UserDTO;
-import com.example.budgetbuddy.Services.AdvicerServices;
-import com.example.budgetbuddy.Services.UserServices;
+import com.example.budgetbuddy.Services.AdvisorServices;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,8 +11,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping(path="advice")
-public class AdvicerController {
-    AdvicerServices advicerServices = new AdvicerServices();
+public class AdvisorController {
+    AdvisorServices advicerServices = new AdvisorServices();
 
     @GetMapping(path="getAdvice",consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity getAdvice(@RequestBody UserDTO userDTO) {

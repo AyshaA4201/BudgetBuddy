@@ -13,9 +13,8 @@ import java.util.stream.Collectors;
 @Getter
 @Setter
 public class Users {
+
     static List<User> users = new ArrayList<>();
-
-
 
     public void saveUser(User user){
         users.add(user);

@@ -12,7 +12,7 @@ import java.util.Collections;
 import java.util.List;
 
 @Service
-public class AdvicerServices {
+public class AdvisorServices {
     Users users = new Users();
 
     public String getAdvice(UserDTO userDTO){
