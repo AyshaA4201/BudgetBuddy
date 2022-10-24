@@ -6,9 +6,10 @@ import com.example.budgetbuddy.Services.TransactionServices;
 import com.example.budgetbuddy.Services.UserServices;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-@RestController
+@Controller
 @RequestMapping(path="transactions")
 public class TransactionController {
     TransactionServices transactionServices = new TransactionServices();
