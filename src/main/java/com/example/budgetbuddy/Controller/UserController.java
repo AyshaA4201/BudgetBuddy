@@ -39,7 +39,6 @@ public class UserController {
 
     @GetMapping("/hilo")
     public String dlkd(Model model){
-        model.addAttribute("message", "puton");
         return "index";
     }
 }
