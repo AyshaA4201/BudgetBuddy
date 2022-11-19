@@ -43,4 +43,16 @@ public class UserServices {
         }
         return text;
     }
+
+    public String login(UserDTO userDTO){
+        String response="";
+        User user  = users.getUserByUsername(userDTO.getUsername());
+        if(user.getPassword() == userDTO.getPassword()){
+            response+="you got it";
+        }else{
+            response+="you didn't get it";
+        }
+        return response;
+
+    }
 }

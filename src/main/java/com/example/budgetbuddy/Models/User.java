@@ -12,6 +12,7 @@ import java.util.*;
 public class User {
 
     public String username;
+    public String password;
     public int accountId;
     public List<Account> accounts = new ArrayList<>();
     int userId;
