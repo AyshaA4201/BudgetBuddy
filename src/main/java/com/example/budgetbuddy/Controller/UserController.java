@@ -30,5 +30,4 @@ public class UserController {
     public ResponseEntity<?> listAllAccounts(@RequestBody UserDTO username){
         return ResponseEntity.ok(userServices.listAllMyAccounts(username.getUsername()));
     }
-
 }
