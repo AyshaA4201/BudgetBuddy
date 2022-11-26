@@ -26,19 +26,8 @@ public class UserController {
         return ResponseEntity.ok(userServices.createAccount(user));
     }
 
-    @GetMapping(path="viewBankAccounts", consumes=MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(path="{username}/viewBankAccounts", consumes=MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> listAllAccounts(@RequestBody UserDTO username){
         return ResponseEntity.ok(userServices.listAllMyAccounts(username.getUsername()));
-    }
-
-    @GetMapping()
-    public String dkd(Model model){
-        //model.addAttribute("message", "puton");
-        return "home";
-    }
-
-    @GetMapping("/hilo")
-    public String dlkd(Model model){
-        return "index";
     }
 }
