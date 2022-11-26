@@ -9,7 +9,6 @@ import lombok.ToString;
 @ToString
 public class UserDTO {
     String username;
-    String password;
     int balance;
     int accountId;
 }

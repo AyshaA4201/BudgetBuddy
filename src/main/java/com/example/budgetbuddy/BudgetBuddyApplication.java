@@ -20,7 +20,6 @@ public class BudgetBuddyApplication {
     public void CommandLineRunner(){
         Users users = new Users();
         User aysha = new User("aysha");
-        aysha.setPassword("password");
         TransactionServices transactionServices = new TransactionServices();
         Account account = new Account(500);
         Account account2 = new Account(500);

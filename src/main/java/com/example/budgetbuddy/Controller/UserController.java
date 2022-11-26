@@ -31,11 +31,6 @@ public class UserController {
         return ResponseEntity.ok(userServices.listAllMyAccounts(username.getUsername()));
     }
 
-    @PostMapping(consumes=MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<?> login(@RequestBody UserDTO userDTO){
-        return ResponseEntity.ok(userServices.login(userDTO));
-    }
-
     @GetMapping()
     public String dkd(Model model){
         //model.addAttribute("message", "puton");

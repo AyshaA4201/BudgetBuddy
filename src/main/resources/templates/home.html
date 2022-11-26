@@ -4,8 +4,147 @@
     <meta charset="UTF-8">
     <title>BudgetBuddy</title>
 </head>
+<style>
+    <style>
+    body {
+        font-family: "Lato", sans-serif;
+        background-color: darkseagreen;
+    }
+
+    .sidenav {
+        height: 100%;
+        width: 0;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        background-color: mediumseagreen;
+        overflow-x: hidden;
+        transition: 0.5s;
+        padding-top: 60px;
+    }
+
+    .sidenav a {
+        padding: 8px 8px 8px 32px;
+        text-decoration: none;
+        font-size: 25px;
+        color: white;
+        display: block;
+        transition: 0.3s;
+    }
+
+    .sidenav a:hover {
+        color: gold;
+    }
+
+    .sidenav .closebtn {
+        position: absolute;
+        top: 0;
+        right: 25px;
+        font-size: 36px;
+        margin-left: 50px;
+    }
+    header{
+        background-color: mediumseagreen; /* For browsers that do not support gradients */
+        background-image: linear-gradient(to bottom right, mediumseagreen, gold);
+        padding: 30px;
+        text-align: center;
+        font-size: 35px;
+    }
+
+    #main {
+        transition: margin-left .5s;
+        padding: 16px;
+        background-color: darkseagreen;
+    }
+
+    @media screen and (max-height: 450px) {
+        .sidenav {padding-top: 15px;}
+        .sidenav a {font-size: 18px;}
+    }
+    table, th, td {
+        border:1px solid black;
+    }
+    /* Create three equal columns that floats next to each other */
+    .column {
+        float: left;
+        width: 40%;
+        padding: 10px;
+    }
+
+    /* Clear floats after the columns */
+    #row:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+    </style>
+</style>
 <body>
 
+<div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="#">Linked Accounts</a>
+    <a href="#">Goals</a>
+    <a href="#">Notes</a>
+    <a href="#">Income Tracker</a>
+    <a href="#">Concurrent Payments</a>
+    <a href="#">Contact</a>
+</div>
 
+<div id="main">
+    <header>BudgetBuddy</header>
+    <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Menu</span>
+    <h2>Welcome Back!</h2>
+    <p>Let's accomplish our goals. You're so close!</p>
+    <div id="row">
+        <div class="column">
+            <h4>Total Assets:</h4>
+            <h4>Checking:</h4>
+            <h4>Savings:</h4>
+        </div>
+        <div class="column">
+            Tip: blalalala</div>
+    </div>
+    <table style="width:100%">
+        <tr>
+            <th>Date</th>
+            <th>Account</th>
+            <th>Description</th>
+            <th>Debit</th>
+            <th>Credit</th>
+            <th>Balance</th>
+        </tr>
+        <tr>
+            <td>Example</td>
+            <td>Example</td>
+            <td>Example</td>
+            <td>Example</td>
+            <td>Example</td>
+            <td>Example</td>
+        </tr>
+        <tr>
+            <td>Example</td>
+            <td>Example</td>
+            <td>Example</td>
+            <td>Example</td>
+            <td>Example</td>
+            <td>Example</td>
+        </tr>
+    </table>
+
+</div>
+
+<script>
+    function openNav() {
+        document.getElementById("mySidenav").style.width = "250px";
+        document.getElementById("main").style.marginLeft = "250px";
+    }
+
+    function closeNav() {
+        document.getElementById("mySidenav").style.width = "0";
+        document.getElementById("main").style.marginLeft= "0";
+    }
+</script>
 </body>
 </html>
