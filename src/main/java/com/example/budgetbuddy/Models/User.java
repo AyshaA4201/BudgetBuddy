@@ -15,6 +15,7 @@ public class User {
     public int accountId;
     public List<Account> accounts = new ArrayList<>();
     int userId;
+    int totalBalance;
 
     public User(String username){
         Random r = new Random();
@@ -27,9 +28,15 @@ public class User {
             if(a.getAccountId() == accountId){
                 return a;
             }
-
         }
         return null;
+    }
+
+    public int getTotalBalance(){
+        for (Account a : accounts){
+            totalBalance+=a.getBalance();
+        }
+        return totalBalance;
     }
 
     public void addAccount(Account account){

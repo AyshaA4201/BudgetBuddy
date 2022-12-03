@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Contact</title>
+</head>
+<style>
+    body {
+        font-family: "Lato", sans-serif;
+        background-color: darkseagreen;
+    }
+
+    .sidenav {
+        height: 100%;
+        width: 0;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        background-color: mediumseagreen;
+        overflow-x: hidden;
+        transition: 0.5s;
+        padding-top: 60px;
+    }
+
+    .sidenav a {
+        padding: 8px 8px 8px 32px;
+        text-decoration: none;
+        font-size: 25px;
+        color: white;
+        display: block;
+        transition: 0.3s;
+    }
+
+    .sidenav a:hover {
+        color: gold;
+    }
+
+    .sidenav .closebtn {
+        position: absolute;
+        top: 0;
+        right: 25px;
+        font-size: 36px;
+        margin-left: 50px;
+    }
+    header{
+        background-color: whitesmoke; /* For browsers that do not support gradients */
+        border: 1px solid;
+        padding: 23px;
+        box-shadow: 10px 5px #1b2b11;
+        text-align: center;
+        font-size: 35px;
+        font-family: "Copperplate Gothic Light";
+    }
+
+    #main {
+        transition: margin-left .5s;
+        padding: 16px;
+        background-color: darkseagreen;
+    }
+
+    @media screen and (max-height: 450px) {
+        .sidenav {padding-top: 15px;}
+        .sidenav a {font-size: 18px;}
+    }
+    table, th, td {
+        border:1px solid black;
+    }
+
+    h2 {
+        font-family: "Goudy Old Style";
+        font-weight: bold;
+        font-style: italic;
+    }
+
+    p, a, h4 {
+        font-family: "Lucida Bright";
+    }
+    /* Create three equal columns that floats next to each other */
+    .column {
+        float: left;
+        width: 40%;
+        padding: 10px;
+    }
+
+    /* Clear floats after the columns */
+    #row:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+</style>
+<body>
+<!--<<<<<<< HEAD-->
+
+<div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a th:href="@{/Home}">Home</a>
+    <a th:href="@{/LinkedAccounts}">Linked Accounts</a>
+    <a th:href="@{/Goals}">Goals</a>
+    <a th:href="@{/Notes}">Notes</a>
+    <a th:href="@{/IncomeTracker}">Income Tracker</a>
+    <a th:href="@{/ConcurrentPayments}">Concurrent Payments</a>
+    <a th:href="@{/Contact}">Contact</a>
+</div>
+<!--=======-->
+<!--<p>HOME</p>-->
+<!--&gt;>>>>>> b4a714433dc903957995b06960e95689285d7235-->
+
+<div id="main">
+    <header>BudgetBuddy</header>
+    <h2> </h2>
+    <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Menu</span>
+    <h2>Feel free to reach out to us!</h2>
+    <p>Email: </p>
+    <p>Phone:</p>
+    <p>Address:</p>
+
+
+</div>
+
+<script>
+    function openNav() {
+        document.getElementById("mySidenav").style.width = "250px";
+        document.getElementById("main").style.marginLeft = "250px";
+    }
+
+    function closeNav() {
+        document.getElementById("mySidenav").style.width = "0";
+        document.getElementById("main").style.marginLeft= "0";
+    }
+</script>
+</body>
+</html>

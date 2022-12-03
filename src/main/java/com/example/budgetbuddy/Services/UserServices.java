@@ -43,4 +43,8 @@ public class UserServices {
         }
         return text;
     }
+
+    public User getUser(String username){
+        return users.getUserByUsername(username);
+    }
 }
