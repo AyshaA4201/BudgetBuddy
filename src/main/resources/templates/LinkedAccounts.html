@@ -131,7 +131,10 @@
   <h2>  </h2>
   <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Menu</span>
   <h2>Linked Accounts</h2>
-  <a href="#" class="button">Add Account</a>
+  <tr th:each="account : ${user.getAccounts()}">
+    <td><span th:text="${account}"> </span></td>
+  </tr>
+  <a th:href="@{/AddAccount}" class="button">Add Account</a>
   <a href="#" class="button">Delete Account</a>
 
 </div>
