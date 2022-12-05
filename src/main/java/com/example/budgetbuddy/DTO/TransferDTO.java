@@ -14,6 +14,9 @@ public class TransferDTO {
     int accountNumber;
     int relevanceNumber;
 
+    public TransferDTO() {
+    }
+
     public TransferDTO(String username, int moneyTransferred, int accountNumber, int relevanceNumber) {
         this.username = username;
         this.moneyTransferred = moneyTransferred;

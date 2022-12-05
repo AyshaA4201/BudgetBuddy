@@ -101,8 +101,6 @@
   <a th:href="@{/Home}">Home</a>
   <a th:href="@{/LinkedAccounts}">Linked Accounts</a>
   <a th:href="@{/Goals}">Goals</a>
-  <a th:href="@{/Notes}">Notes</a>
-  <a th:href="@{/IncomeTracker}">Income Tracker</a>
   <a th:href="@{/ConcurrentPayments}">Concurrent Payments</a>
   <a th:href="@{/Contact}">Contact</a>
 </div>
@@ -122,36 +120,16 @@
 
     </div>
     <div class="column">
-      Status: <a th:text="${user.getUserId()}"</div>
+      Status: <a th:text="${user.getUserId()}"></a></div>
   </div>
   <table style="width:100%">
     <tr>
-      <th>Date</th>
       <th>Account</th>
-      <th>Description</th>
-      <th>Transaction ID</th>
-      <th>Credit</th>
       <th>Balance</th>
     </tr>
     <tr th:each="account : ${user.getAccounts()}">
-      <td><span th:text="${account.getTransactions()}"> </span></td>
-
-    </tr>
-    <tr>
-      <td><a th:text="${accounts}"></a></td>
-      <td>Example</td>
-      <td>Example</td>
-      <td>Example</td>
-      <td>Example</td>
-      <td>Example</td>
-    </tr>
-    <tr>
-      <td>Example</td>
-      <td>Example</td>
-      <td>Example</td>
-      <td>Example</td>
-      <td>Example</td>
-      <td>Example</td>
+      <td><span th:text="${account.getAccountId()}"> </span></td>
+      <td><span th:text="${account.getBalance()}"> </span></td>
     </tr>
   </table>
 

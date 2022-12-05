@@ -13,11 +13,12 @@ import org.springframework.context.annotation.Bean;
 @SpringBootApplication
 public class BudgetBuddyApplication {
     public static void main(String[] args) {
+        CommandLineRunner();
         SpringApplication.run(BudgetBuddyApplication.class, args);
     }
 
-    @Bean
-    public void CommandLineRunner(){
+
+    public static void CommandLineRunner(){
         Users users = new Users();
         User aysha = new User("aysha");
         TransactionServices transactionServices = new TransactionServices();
@@ -27,6 +28,12 @@ public class BudgetBuddyApplication {
         aysha.addAccount(account2);
         users.saveUser(aysha);
         TransferDTO transferDTO = new TransferDTO("aysha",20, account.getAccountId(),1);
+        TransferDTO transferDTO1 = new TransferDTO("aysha",20, account.getAccountId(),2);
+        TransferDTO transferDTO2 = new TransferDTO("aysha",20, account.getAccountId(),3);
+        TransferDTO transferDTO3 = new TransferDTO("aysha",20, account.getAccountId(),4);
         transactionServices.makeTransfer(transferDTO);
+        transactionServices.makeTransfer(transferDTO1);
+        transactionServices.makeTransfer(transferDTO2);
+        transactionServices.makeTransfer(transferDTO3);
     }
 }

@@ -117,8 +117,6 @@
   <a th:href="@{/Home}">Home</a>
   <a th:href="@{/LinkedAccounts}">Linked Accounts</a>
   <a th:href="@{/Goals}">Goals</a>
-  <a th:href="@{/Notes}">Notes</a>
-  <a th:href="@{/IncomeTracker}">Income Tracker</a>
   <a th:href="@{/ConcurrentPayments}">Concurrent Payments</a>
   <a th:href="@{/Contact}">Contact</a>
 </div>
@@ -130,13 +128,13 @@
   <header>BudgetBuddy</header>
   <h2>  </h2>
   <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Menu</span>
-  <h2>Linked Accounts</h2>
-  <tr th:each="account : ${user.getAccounts()}">
-    <td><span th:text="${account}"> </span></td>
-  </tr>
-  <a th:href="@{/AddAccount}" class="button">Add Account</a>
-  <a href="#" class="button">Delete Account</a>
 
+
+</div>
+
+<div id="buttons">
+  <a th:href="@{/AddAccount}" class="button">Add Account</a>
+  <a th:href="@{/DeleteAccount}" class="button">Delete Account</a>
 </div>
 
 <script>

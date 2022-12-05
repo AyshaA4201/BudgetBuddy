@@ -98,8 +98,6 @@
   <a th:href="@{/Home}">Home</a>
   <a th:href="@{/LinkedAccounts}">Linked Accounts</a>
   <a th:href="@{/Goals}">Goals</a>
-  <a th:href="@{/Notes}">Notes</a>
-  <a th:href="@{/IncomeTracker}">Income Tracker</a>
   <a th:href="@{/ConcurrentPayments}">Concurrent Payments</a>
   <a th:href="@{/Contact}">Contact</a>
 </div>
@@ -114,7 +112,7 @@
   <h2>Add Account</h2>
 
   <form th:action="AddAccount" method="post">
-    <h2>Patient Name</h2>
+    <h2>Name</h2>
     <div id="appointment-patient-name" class="div-margins">
       <label>
         <input type="text" placeholder="Username" th:field="*{user.username}">

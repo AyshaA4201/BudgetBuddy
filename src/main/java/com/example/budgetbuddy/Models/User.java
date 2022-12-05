@@ -32,6 +32,14 @@ public class User {
         return null;
     }
 
+    public void deleteBankAccount(Integer accountId){
+        for(Account a: accounts){
+            if(a.getAccountId()==accountId){
+                accounts.remove(a);
+            }
+        }
+    }
+
     public int getTotalBalance(){
         for (Account a : accounts){
             totalBalance+=a.getBalance();

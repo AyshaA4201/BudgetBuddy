@@ -1,5 +1,6 @@
 package com.example.budgetbuddy.Services;
 
+import com.example.budgetbuddy.DTO.AccountDTO;
 import com.example.budgetbuddy.DTO.TransferDTO;
 import com.example.budgetbuddy.DTO.UserDTO;
 import com.example.budgetbuddy.Data.Users;
@@ -31,6 +32,12 @@ public class UserServices {
         user.addAccount(account);
         return "New account created.\nThe account ID is: "+ account.getAccountId() +
                 "\nAnd the account balance is: " + account.getBalance();
+    }
+
+    public String deleteAccount(AccountDTO accountDTO){
+        User user = users.getUserByUsername(accountDTO.getUsername());
+        user.deleteBankAccount(accountDTO.getAccountId());
+        return "Account has been deleted";
     }
 
     public String listAllMyAccounts(String username){

@@ -26,7 +26,7 @@ public class Account {
     }
 
     public void makeTransaction(Transaction transaction){
-        balance -= transaction.getAmount();
+        balance += transaction.getAmount();
         transactions.add(transaction);
     }
 

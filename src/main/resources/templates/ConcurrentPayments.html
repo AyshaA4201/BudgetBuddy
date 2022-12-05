@@ -98,8 +98,6 @@
   <a th:href="@{/Home}">Home</a>
   <a th:href="@{/LinkedAccounts}">Linked Accounts</a>
   <a th:href="@{/Goals}">Goals</a>
-  <a th:href="@{/Notes}">Notes</a>
-  <a th:href="@{/IncomeTracker}">Income Tracker</a>
   <a th:href="@{/ConcurrentPayments}">Concurrent Payments</a>
   <a th:href="@{/Contact}">Contact</a>
 </div>
@@ -112,6 +110,26 @@
   <h2>  </h2>
   <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Menu</span>
   <h2>Concurrent Payments</h2>
+
+  <form th:action="ConcurrentPayments" method="post">
+  <div id="name" class="div-margins">
+    <label>
+      <h1>Money to be transferred</h1>
+      <input type="text" placeholder="Balance" th:field="*{user.moneyTransferred}">
+    </label>
+    <label>
+      <h1>Account Id</h1>
+      <input type="text" placeholder="Account Id" th:field="*{user.accountNumber}">
+    </label>
+    <label>
+      <h1>Relevance number (from 1 to 4)</h1>
+      <input type="text" placeholder="Relevance" th:field="*{user.relevanceNumber}">
+    </label>
+  </div>
+  <div>
+    <button type="submit">Submit</button>
+  </div>
+  </form>
 
 </div>
 

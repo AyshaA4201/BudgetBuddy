@@ -1,5 +1,6 @@
 package com.example.budgetbuddy.Controller;
 
+import com.example.budgetbuddy.DTO.AccountDTO;
 import com.example.budgetbuddy.DTO.UserDTO;
 import com.example.budgetbuddy.Models.Account;
 import com.example.budgetbuddy.Models.User;
@@ -9,7 +10,9 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 
@@ -20,11 +23,17 @@ import static org.springframework.http.ResponseEntity.ok;
 public class UserController {
     UserServices userServices = new UserServices();
     AdvisorServices advisorServices = new AdvisorServices();
+    User aysha = userServices.getUser("aysha");
+    List<Account> accounts = aysha.getAccounts();
+
+    @GetMapping()
+    public ModelAndView Home(){
+        //modelMap.addAttribute("attribute", "Home");
+        return new ModelAndView("redirect:" + "Home");
+    }
 
     @GetMapping("Home")
     public String home(Model model){
-        User aysha = userServices.getUser("aysha");
-        List<Account> accounts = aysha.getAccounts();
         model.addAttribute("user", aysha);
         model.addAttribute("accounts", accounts);
         return "home";
@@ -47,21 +56,28 @@ public class UserController {
         return "AccountAdded";
     }
 
+    @PostMapping("DeleteAccount")
+    public String DeleteAccount(Model model, @ModelAttribute AccountDTO accountDTO){
+        User user = userServices.getUser("aysha");
+        accountDTO.setUsername(user.getUsername());
+        model.addAttribute("user", accountDTO);
+        userServices.deleteAccount(accountDTO);
+        return "AccountDeleted";
+    }
+
+    @GetMapping("DeleteAccount")
+    public String DeleteAccount(Model model){
+        UserDTO user = new UserDTO();
+        model.addAttribute("user", user);
+        return "DeleteAccount";
+    }
+
     @GetMapping("LinkedAccounts")
     public String LinkedAccounts(Model model){
         User aysha = userServices.getUser("aysha");
         model.addAttribute("user", aysha);
         return "LinkedAccounts";
     }
-
-    @GetMapping("Notes")
-    public String Notes(Model model){ return "Notes"; }
-
-    @GetMapping("IncomeTracker")
-    public String IncomeTracker(Model model){ return "IncomeTracker"; }
-
-    @GetMapping("ConcurrentPayments")
-    public String ConcurrentPayments(Model model){ return "ConcurrentPayments"; }
 
     @GetMapping("Goals")
     public String Goals(Model model){
@@ -90,5 +106,4 @@ public class UserController {
     public ResponseEntity<?> listAllAccounts(@RequestBody UserDTO username){
         return ResponseEntity.ok(userServices.listAllMyAccounts(username.getUsername()));
     }
-
 }
