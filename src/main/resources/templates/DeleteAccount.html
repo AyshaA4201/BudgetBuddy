@@ -109,10 +109,11 @@
   <header>BudgetBuddy</header>
   <h2>  </h2>
   <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Menu</span>
-  <h2>Add Account</h2>
+  <h2>Delete Account</h2>
+  <h2>Enter account id</h2>
 
   <form th:action="DeleteAccount" method="post">
-    <div id="appointment-patient-name" class="div-margins">
+    <div id="name" class="div-margins">
       <label>
         <input type="text" placeholder="Balance" th:field="*{user.accountId}">
       </label>

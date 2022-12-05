@@ -15,7 +15,7 @@ public class User {
     public int accountId;
     public List<Account> accounts = new ArrayList<>();
     int userId;
-    int totalBalance;
+    static int totalBalance;
 
     public User(String username){
         Random r = new Random();
@@ -41,6 +41,7 @@ public class User {
     }
 
     public int getTotalBalance(){
+        totalBalance=0;
         for (Account a : accounts){
             totalBalance+=a.getBalance();
         }

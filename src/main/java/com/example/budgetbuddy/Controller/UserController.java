@@ -51,6 +51,8 @@ public class UserController {
 
     @PostMapping("AddAccount")
     public String AddAccount(Model model, @ModelAttribute UserDTO userDTO){
+        User user = userServices.getUser("aysha");
+        userDTO.setUsername(user.getUsername());
         model.addAttribute("user", userDTO);
         userServices.createAccount(userDTO);
         return "AccountAdded";
@@ -60,15 +62,14 @@ public class UserController {
     public String DeleteAccount(Model model, @ModelAttribute AccountDTO accountDTO){
         User user = userServices.getUser("aysha");
         accountDTO.setUsername(user.getUsername());
-        model.addAttribute("user", accountDTO);
         userServices.deleteAccount(accountDTO);
         return "AccountDeleted";
     }
 
     @GetMapping("DeleteAccount")
     public String DeleteAccount(Model model){
-        UserDTO user = new UserDTO();
-        model.addAttribute("user", user);
+        AccountDTO accountDTO = new AccountDTO();
+        model.addAttribute("user", accountDTO);
         return "DeleteAccount";
     }
 

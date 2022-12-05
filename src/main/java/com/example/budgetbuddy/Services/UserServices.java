@@ -34,10 +34,9 @@ public class UserServices {
                 "\nAnd the account balance is: " + account.getBalance();
     }
 
-    public String deleteAccount(AccountDTO accountDTO){
+    public void deleteAccount(AccountDTO accountDTO){
         User user = users.getUserByUsername(accountDTO.getUsername());
         user.deleteBankAccount(accountDTO.getAccountId());
-        return "Account has been deleted";
     }
 
     public String listAllMyAccounts(String username){
